@@ -1,0 +1,33 @@
+{
+  "options": {
+    "mfa": {
+      "active": true,
+      "return_enroll_settings": true
+    },
+    "passwordPolicy": "good",
+    "passkey_options": {
+      "challenge_ui": "both",
+      "local_enrollment_enabled": true,
+      "progressive_enrollment_enabled": true
+    },
+    "strategy_version": 2,
+    "authentication_methods": {
+      "passkey": {
+        "enabled": false
+      },
+      "password": {
+        "enabled": true
+      }
+    },
+    "brute_force_protection": true
+  },
+  "strategy": "auth0",
+  "name": "Username-Password-Authentication",
+  "is_domain_connection": false,
+  "realms": [
+    "Username-Password-Authentication"
+  ],
+  "enabled_clients": [
+    "IaC - Tenant management"
+  ]
+}

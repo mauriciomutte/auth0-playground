@@ -1,0 +1,7 @@
+{
+  "options": {},
+  "strategy": "twitter",
+  "name": "twitter",
+  "is_domain_connection": false,
+  "enabled_clients": []
+}

@@ -1,0 +1,12 @@
+{
+  "options": {
+    "scope": [
+      "wl.signin"
+    ],
+    "signin": true
+  },
+  "strategy": "windowslive",
+  "name": "windowslive",
+  "is_domain_connection": false,
+  "enabled_clients": []
+}

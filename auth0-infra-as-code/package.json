@@ -1,0 +1,18 @@
+{
+  "name": "@auth0-playground/infra-as-code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dump:staging": "a0deploy export --config_file=configs/config-staging.json --format=directory --output_folder=exported",
+    "dump:prod": "a0deploy export --config_file=configs/config-prod.json --format=directory --output_folder=exported",
+    "deploy:staging": "a0deploy import --config_file=configs/config-staging.json --input_file=src",
+    "deploy:prod": "a0deploy import --config_file=configs/config-prod.json --input_file=src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "auth0-deploy-cli": "^7.24.1"
+  }
+}

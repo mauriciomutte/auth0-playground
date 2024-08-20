@@ -1,0 +1,14 @@
+{
+  "enabled_locales": [
+    "en"
+  ],
+  "flags": {
+    "revoke_refresh_token_grant": false,
+    "disable_clickjack_protection_headers": false
+  },
+  "sandbox_version": "18",
+  "oidc_logout": {
+    "rp_logout_end_session_endpoint_discovery": true
+  },
+  "universal_login": {}
+}
