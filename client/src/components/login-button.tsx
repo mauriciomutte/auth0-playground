@@ -7,8 +7,11 @@ export const LoginButton = ({ size }: { size: 'small' | 'large' }) => {
     size === 'large' ? 'py-2 px-12 text-lg' : 'py-2 px-4 text-sm'
 
   return (
-    <button className={`${baseClasses} ${sizeClasses} ${hoverEffect}`}>
+    <a
+      className={`${baseClasses} ${sizeClasses} ${hoverEffect}`}
+      href={`/api/auth/login`}
+    >
       Login
-    </button>
+    </a>
   )
 }
