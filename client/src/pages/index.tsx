@@ -1,3 +1,6 @@
+import { GetServerSidePropsContext } from 'next'
+import { getSession } from '@auth0/nextjs-auth0'
+
 import { LoginButton } from '@/components/login-button'
 import { Header } from '@/components/header'
 
@@ -24,4 +27,18 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  const session = await getSession(ctx.req, ctx.res)
+
+  if (session) {
+    return {
+      redirect: { destination: '/dashboard', permanent: false },
+    }
+  }
+
+  return {
+    props: {},
+  }
 }

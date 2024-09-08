@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { InferGetServerSidePropsType } from 'next'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 import { LogoutButton } from '@/components/logout-button'
 import { Header } from '@/components/header'
@@ -16,11 +17,9 @@ const DashboardSection = ({
   )
 }
 
-export default function Dashboard() {
-  const { user } = useUser()
-
-  console.log(user)
-
+export default function Dashboard({
+  user,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header>
@@ -38,3 +37,5 @@ export default function Dashboard() {
     </div>
   )
 }
+
+export const getServerSideProps = withPageAuthRequired()
