@@ -1,14 +1,12 @@
 import { LoginButton } from '@/components/login-button'
+import { Header } from '@/components/header'
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-white border-b-2">
-        <div className="container mx-auto flex justify-between items-center p-4">
-          <div className="text-xl font-bold">Auth0 Playground</div>
-          <LoginButton size="small" />
-        </div>
-      </header>
+      <Header>
+        <LoginButton size="small" />
+      </Header>
 
       <main className="flex-grow flex flex-col items-center justify-center text-center bg-[#faf8f0]">
         <div className="text-lg flex justify-center items-center gap-2 mb-4">
