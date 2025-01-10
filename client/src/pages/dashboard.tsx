@@ -29,7 +29,7 @@ export default function Dashboard({
       <main className="flex flex-grow bg-gray-100">
         <div className="container mx-auto p-4">
           <h2 className="text-lg mb-4 p-2">
-            You&apos;re logged as {user?.email}!
+            You&apos;re logged as <b className="font-bold">{user?.email}</b>!
           </h2>
           <DashboardSection title="Dashboard"></DashboardSection>
         </div>
