@@ -1,0 +1,22 @@
+name: "Deploy Auth0"
+
+on:
+  push:
+    branches: [main]
+    paths: ["auth0-infra-as-code/**"]
+  workflow_dispatch:
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy Auth0
+        run: |
+          cd auth0-infra-as-code
+          npm install
+          npm run deploy:prod
+        env:
+          AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
