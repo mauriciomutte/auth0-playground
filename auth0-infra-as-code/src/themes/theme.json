@@ -1,12 +1,12 @@
 {
   "colors": {
-    "primary_button": "#635dff",
-    "primary_button_label": "#ffffff",
+    "primary_button": "#FFDD04",
+    "primary_button_label": "#1e212a",
     "secondary_button_border": "#c9cace",
     "secondary_button_label": "#1e212a",
-    "base_focus_color": "#635dff",
+    "base_focus_color": "#FFDD04",
     "base_hover_color": "#000000",
-    "links_focused_components": "#635dff",
+    "links_focused_components": "#FFDD04",
     "header": "#1e212a",
     "body_text": "#1e212a",
     "widget_background": "#ffffff",
@@ -61,7 +61,7 @@
     "show_widget_shadow": true
   },
   "widget": {
-    "logo_position": "center",
+    "logo_position": "none",
     "logo_url": "",
     "logo_height": 52,
     "header_text_alignment": "center",
@@ -69,7 +69,7 @@
   },
   "page_background": {
     "page_layout": "center",
-    "background_color": "#000000",
+    "background_color": "#FAF8F0",
     "background_image_url": ""
   },
   "displayName": "Unnamed Theme"

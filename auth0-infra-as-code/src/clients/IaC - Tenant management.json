@@ -14,6 +14,7 @@
     "idle_token_lifetime": 2592000,
     "rotation_type": "non-rotating"
   },
+  "cross_origin_authentication": true,
   "jwt_configuration": {
     "alg": "RS256",
     "lifetime_in_seconds": 36000,
