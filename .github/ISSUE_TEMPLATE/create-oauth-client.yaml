@@ -17,7 +17,7 @@ body:
       description: A brief description of the OAuth client.
     validations:
       required: true
-  - id: client_redirect_uri
+  - id: redirect_uri
     type: textarea
     attributes:
       label: Redirect URI
