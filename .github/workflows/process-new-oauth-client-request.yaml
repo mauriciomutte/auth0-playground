@@ -1,0 +1,71 @@
+name: Process new OAuth client request
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number'
+        required: true
+
+jobs:
+  process_new_oauth_client_request:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'request-oauth-client')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      - name: Determine issue number
+        id: determine_issue
+        run: |
+          echo "issue_number=$(
+            if [ '${{ github.event_name }}' == 'workflow_dispatch' ]; then
+              echo '${{ github.event.inputs.issue_number }}'
+            else
+              echo '${{ github.event.issue.number }}'
+            fi
+          )" >> $GITHUB_ENV
+
+      - name: Extract issue details
+        id: extract_issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = process.env.issue_number;
+            console.log(`Processing issue #${issueNumber}`);
+            const issue = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber
+            });
+            
+            const body = issue.data.body;
+            core.setOutput('client_name', body.match(/### Client Name\s*\n\s*(.*)/)[1]);
+            core.setOutput('logout_urls', body.match(/### Logout URLs\s*\n\s*(.*)/)[1]);
+            core.setOutput('redirect_uri', body.match(/### Redirect URI\s*\n\s*(.*)/)[1]);
+
+      - name: Create JSON file
+        run: |
+          node ./auth0-infra-as-code/scripts/generate-client-file.js \
+            "${{ steps.extract_issue.outputs.client_name }}" \
+            "${{ steps.extract_issue.outputs.logout_urls }}" \
+            "${{ steps.extract_issue.outputs.redirect_uri }}"
+
+      - name: Create Pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat(new-client): ${{ steps.extract_issue.outputs.client_name }}"
+          title: "feat(new-client): ${{ steps.extract_issue.outputs.client_name }}"
+          body: |
+            Automated creation for ${{ steps.extract_issue.outputs.client_name }} new OAuth client.
+            > This PR was automatically created and will close issue #${{ env.issue_number }}.
+          branch: "feat/new-oauth-client-${{ env.issue_number }}"
+          base: main

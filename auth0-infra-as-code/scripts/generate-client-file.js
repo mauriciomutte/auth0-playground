@@ -20,7 +20,7 @@ const output = template
     .replace('"{{allowed_logout_urls}}"', logoutUrlArray)
     .replace('"{{callbacks}}"', callbackArray);
 
-const outputPath = `src/clients/${name}.json`;
+const outputPath = `auth0-infra-as-code/src/clients/${name}.json`;
 fs.writeFileSync(outputPath, output);
 
 console.log(`Client JSON file generated at ${outputPath}`);
