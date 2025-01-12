@@ -1,0 +1,35 @@
+name: New OAuth client request
+description: Use this form to request a new OAuth client configuration.
+title: "OAuth Client Request: [Client Name]"
+labels: ['request-oauth-client']
+body:
+  - id: client_name
+    type: input
+    attributes:
+      label: Client Name
+      description: The name of the OAuth client.
+    validations:
+      required: true
+  - id: client_description
+    type: input
+    attributes:
+      label: Client Description
+      description: A brief description of the OAuth client.
+    validations:
+      required: true
+  - id: client_redirect_uri
+    type: textarea
+    attributes:
+      label: Redirect URI
+      description: List of allowed redirect URIs (comma-separated).
+      placeholder: https://example.com/callback, https://example.com/auth
+    validations:
+      required: true
+  - id: logout_urls
+    type: textarea
+    attributes:
+      label: Logout URLs
+      description: List of allowed logout URLs (comma-separated).
+      placeholder: https://example.com/logout, https://example.com/logout/callback
+    validations:
+      required: true
