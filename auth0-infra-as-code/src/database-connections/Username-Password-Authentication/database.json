@@ -28,6 +28,7 @@
     "Username-Password-Authentication"
   ],
   "enabled_clients": [
-    "IaC - Tenant management"
+    "IaC - Tenant management",
+    "Client - SSR (Next.js)"
   ]
 }

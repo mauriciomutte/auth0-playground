@@ -16,7 +16,7 @@
   },
   "allowed_clients": [],
   "allowed_logout_urls": ["http://localhost:3000/"],
-  "callbacks": ["http://localhost:3000", "http//localhost:3000/api/auth/callback"],
+  "callbacks": ["http://localhost:3000", "http://localhost:3000/api/auth/callback"],
   "native_social_login": {
     "apple": {
       "enabled": false
