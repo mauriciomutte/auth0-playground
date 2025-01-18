@@ -3,7 +3,7 @@ name: "Deploy Auth0"
 on:
   push:
     branches: [main]
-    paths: ["auth0-infra-as-code/**"]
+    paths: ["auth0-infra-as-code/{configs,src}/**"]
   workflow_dispatch:
 
 
