@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     'nuxt-auth-utils'
   ],
   srcDir: 'app',
+  serverDir: 'server',
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [
