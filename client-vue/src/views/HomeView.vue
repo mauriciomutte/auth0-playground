@@ -3,7 +3,14 @@ import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
-  <main>
+  <div class="welcome">
     <TheWelcome />
-  </main>
+  </div>
 </template>
+
+<style scoped>
+.welcome {
+  max-width: 720px;
+  margin: 0 auto;
+}
+</style>
